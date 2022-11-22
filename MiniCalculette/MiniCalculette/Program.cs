@@ -12,69 +12,75 @@ namespace MiniCalculette
         {
             // Définition des variables
             String strValeur1, strValeur2, op;
-            float floatValeur1, floatValeur2, resultat;
+            float floatValeur1;
+            float floatValeur2;
+            float resultat;
 
-            Console.WriteLine("--------------------------------");        
-            Console.WriteLine("|       Mini Calculatrice      |");
-            Console.WriteLine("--------------------------------");
-            Console.WriteLine("|     Opérations Possibles     |");
-            Console.WriteLine("--------------------------------");
-            Console.WriteLine("|        Addition :       A    |");
-            Console.WriteLine("|        Soustraction :   S    |");
-            Console.WriteLine("|        Multiplication : M    |");
-            Console.WriteLine("|        Division :       D    |");
-            Console.WriteLine("--------------------------------");
-            Console.Write("Choix opération : ");
+            Console.WriteLine("------------------------------");        
+            Console.WriteLine("|      Mini Calculatrice     |");
+            Console.WriteLine("------------------------------");
+            Console.WriteLine("|    Opérations Possibles |   ");
+            Console.WriteLine("------------------------------");
+            Console.WriteLine("|       Addition :       A   |");
+            Console.WriteLine("|       Soustraction :   S   |");
+            Console.WriteLine("|       Multiplication : M   |");
+            Console.WriteLine("|       Division :       D   |");
+            Console.WriteLine("------------------------------");
+
+            Console.Write("Informer le type d'opération: ");
             op = Console.ReadLine();
-            Console.WriteLine("--------------------------------");
-
-            // Entrée des valeurs
-            Console.Write("Saissisez la première valeur : ");
-            strValeur1 = Console.ReadLine();
-            Console.Write("Saissisez la seconde valeur : ");
-            strValeur2 = Console.ReadLine();
-            Console.WriteLine("--------------------------------");
-
-            // Conversion des variables
-            floatValeur1 = float.Parse(strValeur1);
-            floatValeur2 = float.Parse(strValeur2);
 
             switch (op)
             {
                 case "A" :
-                    resultat = floatValeur1 + floatValeur2;
-                    Console.Write(floatValeur1+" + "+floatValeur2+" = "+resultat);
-                    break;
+                    Console.Write("Saissisez la premiere valeur: ");
+                    strValeur1 = Console.ReadLine();
+                    Console.Write("Saissisez la seconde valeur: ");
+                    strValeur2 = Console.ReadLine();
+                    r = valeur1 + valeur2;
+                    Console.Write("Le résultat de cette addition est : " + r );
+                   break;
 
 
                 case "S":
-                    resultat = floatValeur1 - floatValeur2;
-                    Console.Write(floatValeur1 + " - " + floatValeur2 + " = " + resultat);
+                    Console.Write("Saissisez la premiere valeur: ");
+                    strValeur1 = Console.ReadLine();
+                    Console.Write("Saissisez la seconde valeur: ");
+                    strValeur2 = Console.ReadLine();
+                    r = valeur1 - valeur2;
+                    Console.Write("Le résultat de cette soustraction est : " + r);
                     break;
 
 
                 case "M":
-                    resultat = floatValeur1 * floatValeur2;
-                    Console.Write(floatValeur1 + " x " + floatValeur2 + " = " + resultat);
+                    Console.Write("Saissisez la premiere valeur: ");
+                    strValeur1 = Console.ReadLine();
+                    Console.Write("Saissisez la seconde valeur: ");
+                    strValeur2 = Console.ReadLine();
+                    resultat = valeur1 * valeur2;
+                    Console.Write("Le résultat de cette multiplication est : " + r);
                     break;
 
                 case "D":
-                    if (floatValeur1 == 0 || floatValeur2 == 0)
+                    Console.Write("Saissisez la premiere valeur: ");
+                    strValeur1 = Console.ReadLine();
+                    Console.Write("Saissisez la seconde valeur: ");
+                    strValeur2 = Console.ReadLine();
+                    valeur1 = float.Parse(strValeur1);
+                    valeur2 = float.Parse(strValeur2);
+                    while (valeur2 == 0)
                     {
-                        Console.Write("La divison par zéro est impossible.");
+                        Console.WriteLine("Erreur: Le dividande ne peut pas étre egal zéro");       // Pour verifier si la valeur n'est pas égale a zéro
+                        Console.Write("Saissisez la premiere valeur: ");
+                        strValeur1 = Console.ReadLine();
+                        Console.Write("Saissisez la seconde valeur: ");
+                        strValeur2 = Console.ReadLine();
+                        valeur1 = float.Parse(strValeur1);
+                        valeur2 = float.Parse(strValeur2);
                     }
 
-                    else
-                    {
-                        resultat = floatValeur1 / floatValeur2;
-                        Console.WriteLine(floatValeur1 + " / " + floatValeur2 + " = " + resultat);
-                        Console.Write("Division entière : "+resultat+ " Reste : "+floatValeur1 % floatValeur2);  // Division entière marche pas
-
-                    }
-                    break;
-
-                default:
-                    Console.Write("Je connais pas cette opération.");
+                    r = valeur1 / valeur2;
+                    Console.Write("Le résultat de cette division est : " + r);
                     break;
             }
 
