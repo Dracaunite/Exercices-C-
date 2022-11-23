@@ -16,9 +16,13 @@ namespace AppTabVilles
             // Gestion d'erreur
             for (int i = 0; i <= 7; i++)
             {
-                // Utililisateur rentre un numéro, affiche la ville attribué au numéro.
+                // Utilisateur rentre un numéro, affiche la ville attribué au numéro.
+                if (i <= 7)
+                {
+                    break;
+                }
 
-                if (i > 7)
+                else
                 {
                     Console.Write("Numéro incorrect, recommencer la saisie !");
                 }
