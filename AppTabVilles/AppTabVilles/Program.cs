@@ -19,7 +19,7 @@ namespace AppTabVilles
                 // Utilisateur rentre un numéro, affiche la ville attribué au numéro.
                 if (i <= 7)
                 {
-                    break;
+                    // Mettre les autres cas (1 -> Paris), etc...
                 }
 
                 else
