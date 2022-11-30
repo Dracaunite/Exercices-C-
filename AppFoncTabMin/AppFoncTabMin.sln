@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32602.291
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppFoncTabMin", "AppFoncTabMin\AppFoncTabMin.csproj", "{AED9B91C-3EAA-4D09-87DD-DA6BFC0CD729}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AED9B91C-3EAA-4D09-87DD-DA6BFC0CD729}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AED9B91C-3EAA-4D09-87DD-DA6BFC0CD729}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AED9B91C-3EAA-4D09-87DD-DA6BFC0CD729}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AED9B91C-3EAA-4D09-87DD-DA6BFC0CD729}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {10980443-756A-40D8-9DE8-C6BF282F5A4B}
+	EndGlobalSection
+EndGlobal
