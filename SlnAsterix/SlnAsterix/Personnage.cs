@@ -91,62 +91,76 @@ namespace SlnAsterix
 
         public void afficher()
         {
-            Console.WriteLine("Nom : " + nom + " | adresse : "+ adresse + " | fonction : " + fonction + " | nb combats : " + nbCombats);
+            Console.WriteLine("Nom : " + nom + " | Adresse : "+ adresse + " | Fonction : " + fonction + " | Nb combats : " + nbCombats + " | Arme : " + arme + " | Potion : "+ potion + " | Force " + force + " | Nombre de victoire : " + nbVictoire + " | Puissance : " + Puissance());
         }
 
-        public void Puissance()
+        public int Puissance()
         {
-            string[] tabArmes = new string[] { "Glaives", "Poings", "Lance" };
             int calcul = 0;
 
-            for (int i = 0; i < 3; i++)
+            // Le personnage concerné a une potion
+            if (potion != true)
             {
-                // Le personnage concerné a une potion
-                if (potion != true)
+                // On compare l'arme du joueur par rapport à celles disponibles
+                if (arme == "Glaives") 
                 {
-                    // On compare l'arme du joueur par rapport à celles disponibles
-                    if (tabArmes[i] == tabArmes[0]) // Glaives
-                    {
-                        calcul = force + 10;
-                        Console.WriteLine("Il possède des glaives.");
-                    }
+                    calcul = force + 10;
+                }
 
-                    if (tabArmes[i] == tabArmes[1]) // Poings
-                    {
-                        calcul = force + 3;
-                        Console.WriteLine("Il possède des poings.");
-                    }
+                else if (arme == "Poings") // Poings
+                {
+                    calcul = force + 3;
+                }
 
-                    else // Lance
-                    {
-                        calcul = force + 15;
-                        Console.WriteLine("Il possède une lance.");
-                    }
+                else // Lance
+                {
+                    calcul = force + 15;
+                }
+            }
+
+            else
+            {
+                // Le personnage n'a pas de potion
+                if (arme == "Glaives") // Glaives
+                {
+                    calcul = force * 10 + 10;
+                }
+                
+                else if (arme == "Poings") // Poings
+                {
+                    calcul = force * 10 + 3;
+                }
+
+                else // Lance
+                {
+                    calcul = force * 10  + 15;
+                }
+            }
+            return calcul;
+        }
+
+        public string Duel(string personnage1, string personnage2)
+        {
+            int power_pers1 = Puissance();
+            int power_pers2 = Puissance();
+
+            for (int i = 0; i <= 2; i++)
+            {
+                nbCombats++;
+
+                if (power_pers1 > power_pers2)
+                {
+                    nbVictoire++;
+                    return personnage1;
                 }
 
                 else
                 {
-                    // Le personnage n'a pas de potion
-                    if (tabArmes[i] == tabArmes[0]) // Glaives
-                    {
-                        calcul = force * 10 + 10;
-                        Console.WriteLine("Il possède des glaives.");
-                    }
-
-                    if (tabArmes[i] == tabArmes[1]) // Poings
-                    {
-                        calcul = force * 10 + 3;
-                        Console.WriteLine("Il possède des poings.");
-                    }
-
-                    else // Lance
-                    {
-                        calcul = force * 10  + 15;
-                        Console.WriteLine("Il possède une lance.");
-                    }
+                    nbVictoire++;
+                    return personnage2;
                 }
             }
-            Console.Write("La puissance d'Asterix est de : " + calcul);
+            return " Désolé ";
         }
     }
 }
