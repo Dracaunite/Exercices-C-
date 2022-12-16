@@ -139,28 +139,24 @@ namespace SlnAsterix
             return calcul;
         }
 
-        public string Duel(string personnage1, string personnage2)
+        public string Duel(Personnage personnage1, Personnage personnage2)
         {
-            int power_pers1 = Puissance();
-            int power_pers2 = Puissance();
+            int power_pers1 = personnage1.Puissance();
+            int power_pers2 = personnage2.Puissance();
 
-            for (int i = 0; i <= 2; i++)
+            nbCombats++;
+
+            if (power_pers1 > power_pers2)
             {
-                nbCombats++;
-
-                if (power_pers1 > power_pers2)
-                {
-                    nbVictoire++;
-                    return personnage1;
-                }
-
-                else
-                {
-                    nbVictoire++;
-                    return personnage2;
-                }
+                nbVictoire++;
+                return personnage1.Nom;
             }
-            return " Désolé ";
+
+            else
+            {
+                nbVictoire++;
+                return personnage2.Nom;
+            }
         }
     }
 }

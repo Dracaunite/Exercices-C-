@@ -10,9 +10,16 @@ namespace SlnAsterix
     {
         static void Main(string[] args)
         {
+            // On définit la force + potion aléatoirement
+            Random rnd = new Random();
+            var randomBool_pers1 = rnd.Next(2) == 1; // 0 = false, 1 = true
+            var randomBool_pers2 = rnd.Next(2) == 1;
+            int force_pers1 = rnd.Next(5, 200);
+            int force_pers2 = rnd.Next(5, 200);
+
             // Mise en place attribut 
-            Personnage asterix = new Personnage("Asterix", "Village des Gaulois", "Guerrier", 199, "Poings", true, 12, 150);
-            Personnage romain  = new Personnage("Romain", "Rome", "Soldat", 50, "Lance", false, 25, 1);
+            Personnage asterix = new Personnage("Asterix", "Village des Gaulois", "Guerrier", 199, "Poings", randomBool_pers1, force_pers1, 150);
+            Personnage romain = new Personnage("Romain", "Rome", "Soldat", 50, "Lance", randomBool_pers2, force_pers2, 1);
 
             // Application des changements sur objet Asterix
             asterix.afficher();
@@ -24,6 +31,7 @@ namespace SlnAsterix
             asterix.Adresse = "Village des Gaulois";
             Console.WriteLine("Adresse remise initialement : " + asterix.Adresse);
 
+            // Idem pour objet Romain
             romain.afficher();
             romain.demenager("Village des Gaulois");
             romain.seBattre();
@@ -34,10 +42,8 @@ namespace SlnAsterix
             Console.WriteLine("Adresse remise initialement : " + romain.Adresse);
 
 
-            // Exercices
-            asterix.Puissance();
-            romain.Puissance();
-            Console.WriteLine(asterix.Duel(asterix.Nom, romain.Nom) + " gagne ");
+            // Exercices (Duel + Puissance)
+            Console.WriteLine(asterix.Duel(asterix, romain) + " gagne ");
 
             Console.ReadKey();
         }
