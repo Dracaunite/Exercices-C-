@@ -12,7 +12,7 @@ namespace MiniCalculette
         {
             // Définition des variables
             String op;
-            float floatValeur1, floatValeur2, resultat;
+            float floatValeur1, floatValeur2, resultat, reste;
 
             Console.WriteLine("----------------------------------------");        
             Console.WriteLine("|           Mini Calculatrice          |");
@@ -75,7 +75,8 @@ namespace MiniCalculette
                     while (floatValeur1 == 0 || floatValeur2 == 0);
 
                     resultat = floatValeur1 / floatValeur2;
-                    Console.Write("Le résultat de cette division est : " + resultat);
+                    reste = floatValeur1 % floatValeur2;
+                    Console.Write("Division entière : " + resultat + " \t \t Reste : " + reste);
                     break;
             }
 
